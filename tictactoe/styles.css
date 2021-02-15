@@ -1,0 +1,34 @@
+.grid-box {
+    border-style:outset;
+}
+
+.row {
+  width:100%;
+  display:flex;
+  text-align:center;
+  line-height:100px;
+
+}
+
+.x1 {
+    width:100px;
+    height: 100px;
+}
+.x2 {
+    width:100px;
+    height: 100px;
+}
+.x3 {
+    width:100px;
+    height: 100px;
+}
+
+.x1:hover {
+    background-color:lightgray;
+}
+.x2:hover {
+    background-color:lightgray;
+}
+.x3:hover {
+    background-color:lightgray;
+}
