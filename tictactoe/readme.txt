@@ -7,6 +7,9 @@ Milestones:
 - Enable tracking of the interaction - Done
   - Storage repository 
   - No double clicks on same box
-- Create logic for tic-tac-toe win
-- Generate win message
-- Generate tracker for wins/losses and game count. 
+- Create logic for tic-tac-toe win - Done
+- Generate win message - Done
+- Generate tracker for wins/losses and game count. - Done
+- Handle Tie - Done
+- Stop enabling clicking after win - 
+- Allow winner to start again - 

@@ -20,10 +20,15 @@ var curPlayer=true; //true = Player 1 // false = Player 2
 let playerTracker = function() {
     if(curPlayer){
         console.log('Currently Player 1 \n Switching to Player 2')
-        curPlayer = false;
+        curPlayer = false; 
+        player = curPlayer ? 'Player One': 'Player Two' //allow the player who won to play again
+        document.getElementById('message-board').innerHTML = `${player}'s turn!`
+        
     } else {
         console.log('Currently Player 2 \n Switching to Player 1')
         curPlayer = true;
+        player = curPlayer ? 'Player One': 'Player Two' //allow the player who won to play again
+        document.getElementById('message-board').innerHTML = `${player}'s turn!`
     }
 }
 
@@ -53,9 +58,11 @@ const checkValues = () => {
         }
         if (playerOneCount === 3 && classVals[i] !== 'grid-box') {
             alert(`${winType} win by Player One!`)
+            document.getElementById('message-board').innerHTML = "Player One Wins!"
             return true;
         } else if (playerTwoCount === 3 && classVals[i] !== 'grid-box') {
             alert(`${winType} win by Player Two!`)
+            document.getElementById('message-board').innerHTML = "Player Two Wins!"
             return true;
         } else {
             if((playerOneCount + playerTwoCount) === 9) {
@@ -65,10 +72,7 @@ const checkValues = () => {
             playerOneCount = 0;
             playerTwoCount = 0;
         }
-
-
     }
-
 }
 
 //TRACK PLAYER WINS
