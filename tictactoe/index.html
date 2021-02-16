@@ -2,25 +2,37 @@
     <head>
         <title>Tic-Tac-Toe</title>
         <script src="./index.js"></script>
+        <script src="./gameInteraction.js"></script>
         <link rel="stylesheet" href="./styles.css"></link>
     </head>
     <body>
         Welcome to Tic-Tac-Toe, Taylor
+        <div class="tallies" id="tally-div">
+            <div class="player-container">
+                <p class ="name">PLAYER ONE</p>
+                <p class="tally-box" id="tally-p-one"></p>
+            </div>
+            <div class="player-container">
+                <p class ="name">PLAYER TWO</p>
+                <p class="tally-box" id="tally-p-two"></p>
+            </div>
+        </div>
         <div class="row" id="row1">
-            <div class="row1 grid-box x1" id="box-1">-</div>
-            <div class="row1 grid-box x2" id="box-2">-</div>
-            <div class="row1 grid-box x3" id="box-3">-</div>
+            <div class="row1 col1 dia1 grid-box x1" id="box-1">-</div>
+            <div class="row1 col2 grid-box x2" id="box-2">-</div>
+            <div class="row1 col3 dia2 grid-box x3" id="box-3">-</div>
         </div>
         <div class="row" id="row2">
-            <div class="row2 grid-box x1" id="box-4">-</div>
-            <div class="row2 grid-box x2" id="box-5">-</div>
-            <div class="row2 grid-box x3" id="box-6">-</div>
+            <div class="row2 col1 grid-box x1" id="box-4">-</div>
+            <div class="row2 col2 dia1 dia2 grid-box x2" id="box-5">-</div>
+            <div class="row2 col3 grid-box x3" id="box-6">-</div>
         </div>
         <div class="row" id="row3">
-            <div class="row3 grid-box x1" id="box-7">-</div>
-            <div class="row3 grid-box x2" id="box-8">-</div>
-            <div class="row3 grid-box x3" id="box-9">-</div>
+            <div class="row3 col1 dia2 grid-box x1" id="box-7">-</div>
+            <div class="row3 col2 grid-box x2" id="box-8">-</div>
+            <div class="row3 col3 dia1 grid-box x3" id="box-9">-</div>
         </div>
+        <button id="reset-board">Reset Board</button>
        
     </body>
     </html>

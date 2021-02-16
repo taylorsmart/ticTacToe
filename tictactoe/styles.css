@@ -1,3 +1,32 @@
+
+
+.tallies {
+    display:flex;
+    height:300px;
+    width: 300px;
+}
+
+.player-container {
+    width: 150px;
+    height: 150px;
+}
+
+.name {
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    background:lightgrey;
+}
+
+.tally-box {
+    width: 142px;
+    height: 120px;
+    padding: 4px;
+    border-style:solid;
+    border-color:lightslategray;
+    border-radius:5%;
+}
+
 .grid-box {
     border-style:outset;
 }

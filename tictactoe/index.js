@@ -13,41 +13,44 @@
         'box-9'
     ]
 
-    var curPlayer=true; //true = Player 1 // false = Player 2
-
-    let playerTracker = function() {
-        if(curPlayer){
-            console.log('Currently Player 1 \n Switching to Player 2')
-            curPlayer = false;
-        } else {
-            console.log('Currently Player 2 \n Switching to Player 1')
-            curPlayer = true;
-        }
-    }
-
+    
+    //WHEN A BOX IS CLICKED, THE FOLLOWING SHOULD OCCUR
     let clickFunction = (elId) => {
         console.log('Target El ID: '+ elId)
         var curEl = document.getElementById(elId);
         console.log('You clicked element: ' + 
         curEl.id+ '!')
-        if(curEl.className.includes('player')) {
+        if(curEl.player) {
             alert(`This box is already owned by ${curEl.player} `)
             return;
         }
         curEl.innerHTML = curPlayer ? 'X':'O'
-        curEl.className += curPlayer ? ' player-one' : ' player-two'
         curEl.player = curPlayer ? 'Player 1' : 'Player 2'
         curEl.style['background-color']= curPlayer ? 'aqua' : 'lightpink'; 
+        if(checkValues()) { //If there is a true value, render the tally in the appropriate location
+            playerWinCounter(curPlayer);
+            renderTally();
+        }
         playerTracker() //swap player tracker
     }
 
-
-    for(var i = 0; i < boxIds.length;i++) {
-
-        var targetBox = document.getElementById(boxIds[i]);
-        targetBox.onclick = clickFunction.bind(this,boxIds[i])
-
+    //ADD THE BUTTON CLICK FUNCTIONALITY TO THE PAGE
+    const getBoxes = () => {
+        for(var i = 0; i < boxIds.length;i++) {
+            var targetBox = document.getElementById(boxIds[i]);
+            targetBox.onclick = clickFunction.bind(this,boxIds[i])
+        }
     }
     //SET ONCLICK EVENT FOR EACH BOX ID
+    getBoxes()
     //CONSOLE LOG ON CLICK
+    const resetBoxes = () => {
+        for(var i = 0; i < boxIds.length;i++) {
+            var targetBox = document.getElementById(boxIds[i]);
+            targetBox.player = '';
+            targetBox.innerHTML = '-';
+            targetBox.style['background-color'] = 'white';
+        }
+    }
+    document.getElementById('reset-board').onclick = resetBoxes;
 }
