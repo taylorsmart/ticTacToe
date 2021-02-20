@@ -20,27 +20,54 @@ const fetchCows =function (cb) {
   connection.query('SELECT * from cows', (err,cowList) =>{
     if(err) {
       console.log(err)
+      cb(err, null)
     } else {
-      cb(cowList)
+      console.log(cowList)
+      cb(null,cowList)
+    }
+  })
+}
+
+
+const deleteCow =function (id, cb) {
+  connection.query(`delete from cows where id='${id}'`, (err,cowList) =>{
+    if(err) {
+      console.log(err)
+      cb(err, null)
+    } else {
+      console.log(cowList)
+      cb(null,cowList)
     }
   })
 }
 
 const insertCow =function (name, description, cb) {
-  connection.query(`insert cows columns (name,description) values ('${name}','${description}')`, (err,cowList) =>{
+  connection.query(`insert  cows (name,description) values ('${name}','${description}')`, (err,success) =>{
     if(err) {
       console.log(err)
     } else {
-      console.log('COW INSERTED')
+      console.log('COW Deleted')
+    }
+  })
+}
+
+const editCow =function (id, name, description, cb) {
+  connection.query(`update cows set name='${name}', description='${description}' where id='${id}'`, (err,success) =>{
+    if(err) {
+      console.log(err)
+    } else {
+      console.log('COW edited')
     }
   })
 }
 
 
 
-
-
 // Don't forget to export your functions!
 module.exports = {
+  fetchCows,
+  insertCow,
+  deleteCow,
+  editCow
 
 };
